@@ -1,0 +1,37 @@
+#title {
+  font-size: 60px;
+}
+
+.card-row {
+  margin-top: 50px;
+}
+
+.qcard {
+  border: 1px solid black;
+  min-height: 300px;
+  height: fit-content;
+}
+
+.next-row {
+  margin-top: 30px;
+}
+
+hr {
+  margin-top: 34px;
+}
+
+#input-title {
+  font-size: 25px;
+}
+
+.input-data-row {
+  margin-top: 60px;
+}
+
+input {
+  min-width: 420px;
+}
+
+.submit-button-row {
+  margin-top: 60px;
+}

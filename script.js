@@ -1,3 +1,10 @@
+if (Object.entries(localStorage).length < 5) {
+  localStorage.setItem(
+    "Welcome to the Flash Card Study App! Add data below. Click this box to show the Answer Card!",
+    "Feel free to delete this :) It won't reappear after you have more than 5 questions"
+  );
+}
+
 function $(x) {
   return document.getElementById(x);
 }
@@ -15,7 +22,6 @@ function nextBtn() {
   randNum = Math.floor(Math.random() * data.length);
   qaSplit = data[randNum].toString().split(",");
   $("question").innerHTML = qaSplit[0];
-  // console.log(qaSplit);
 }
 
 function showAnswer() {
@@ -49,5 +55,3 @@ if (data.length == 0) {
 } else {
   $("question").innerHTML = qaSplit[0];
 }
-
-$("title").innerHTML = "Flash Cards!";

@@ -6,36 +6,48 @@ function cLog(x) {
 }
 
 function deleteBtn() {
-  // cLog("Delete!");
+  localStorage.removeItem($("question").innerHTML);
+  window.location.reload();
 }
 
 function nextBtn() {
-  // cLog("Next!");
+  $("answer").innerHTML = "???";
+  randNum = Math.floor(Math.random() * data.length);
+  qaSplit = data[randNum].toString().split(",");
+  $("question").innerHTML = qaSplit[0];
+  // console.log(qaSplit);
 }
 
 function showAnswer() {
-  // cLog("Show answer!");
+  $("answer").innerHTML = qaSplit[1];
 }
 
-document.cookie.name = "hello=goodbye";
+function enableAdd() {
+  if ($("input-question").value === "" || $("input-answer").value === "") {
+    $("submit-button").disabled = true;
+  } else {
+    $("submit-button").disabled = false;
+  }
+}
 
-cLog(document.cookie);
+function addAnswer() {
+  var inputQuestion = $("input-question").value;
+  var inputAnswer = $("input-answer").value;
+  localStorage.setItem(inputQuestion, inputAnswer);
+  $("input-question").value = "";
+  $("input-answer").value = "";
+  enableAdd();
+}
 
-const data = [
-  {
-    question: "How much wood does a woodchuck chuck?",
-    answer: "A fuck ton if you give him cocaine",
-  },
-];
+const data = Object.entries(localStorage);
+let randNum = Math.floor(Math.random() * data.length);
+let qaSplit = data[randNum].toString().split(",");
 
 if (data.length == 0) {
-  // console.log("no data");
   $("question").innerHTML = "No entries to display!";
   $("answer").innerHTML = "No entries to display!";
 } else {
-  // console.log("Data exists");
-  $("question").innerHTML = data[0].question;
-  $("answer").innerHTML = data[0].answer;
+  $("question").innerHTML = qaSplit[0];
 }
 
 $("title").innerHTML = "Flash Cards!";

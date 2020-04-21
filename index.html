@@ -27,15 +27,19 @@
         <div class="col-4">
           <div class="question-title"></div>
           <div id="card-one" onclick="showAnswer()">
-            <div id="question" class="text-center qcard">
-              QUESTION
-            </div>
+            <div
+              id="question"
+              class="text-center qcard d-flex align-items-center justify-content-center"
+            ></div>
           </div>
         </div>
         <div class="col-4">
           <div id="card-two">
-            <div id="answer" class="text-center qcard">
-              ANSWER
+            <div
+              id="answer"
+              class="text-center qcard d-flex align-items-center justify-content-center"
+            >
+              ???
             </div>
           </div>
         </div>
@@ -57,15 +61,21 @@
             id="delete"
             type="button"
             class="btn btn-sm btn-danger"
-            onclick="deleteBtn()"
+            data-toggle="modal"
+            data-target="#exampleModalCenter"
           >
             delete
           </button>
-          <div class="modal" tabindex="-1" role="dialog">
+          <div
+            id="exampleModalCenter"
+            class="modal"
+            tabindex="-1"
+            role="dialog"
+          >
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Modal title</h5>
+                  <h5 class="modal-title">Are you sure?</h5>
                   <button
                     type="button"
                     class="close"
@@ -76,18 +86,19 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>Modal body text goes here.</p>
+                  <p>Are you sure you want to delete this question?</p>
                 </div>
                 <div class="modal-footer">
                   <button
                     type="button"
-                    class="btn btn-secondary"
+                    class="btn btn-danger"
                     data-dismiss="modal"
+                    onclick="deleteBtn()"
                   >
-                    Close
+                    Delete
                   </button>
-                  <button type="button" class="btn btn-primary">
-                    Save changes
+                  <button type="button" class="btn btn-success">
+                    Keep
                   </button>
                 </div>
               </div>
@@ -108,16 +119,26 @@
       <div class="row input-data-row justify-content-around">
         <div class="col-1"></div>
         <div class="col-4 text-center">
-          <input type="text" placeholder="Type stuff here!" />
+          <input
+            id="input-question"
+            type="text"
+            placeholder="Type stuff here!"
+            oninput="enableAdd()"
+          />
         </div>
         <div class="col-4 text-center">
-          <input type="text" placeholder="Type stuff here!" />
+          <input
+            id="input-answer"
+            type="text"
+            placeholder="Type stuff here!"
+            oninput="enableAdd()"
+          />
         </div>
         <div class="col-1"></div>
       </div>
       <div class="row submit-button-row justify-content-center">
         <div class="col-8 text-center">
-          <button id="submit-button">
+          <button id="submit-button" onclick="addAnswer()" disabled="true">
             Add to the Deck!
           </button>
         </div>
@@ -138,7 +159,6 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script> -->
     <script src="./script.js" async defer></script>
   </body>
 </html>
